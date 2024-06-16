@@ -1,8 +1,6 @@
 from openai import OpenAI
 import os
 
-from transformers import AutoTokenizer, AutoModel
-import SimplerVectors
 
 
 
