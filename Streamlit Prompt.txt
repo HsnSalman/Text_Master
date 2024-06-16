@@ -1,7 +1,0 @@
-Act as an expert Python programmer specialized in building user-friendly UIs using Streamlit.
-Create a Streamlit UI for the provided script. Make sure to comment all the code to enhance understanding, particularly for beginners. Choose the most suitable controls for the given script and aim for a professional, user-friendly interface.
-The target audience is beginners who are looking to understand how to create user interfaces with Streamlit. The style of the response should be educational and thorough. Given the instructional nature, comments should be used extensively in the code to provide context and explanations.
-Output:
-Provide the optimized Streamlit UI code, segmented by comments explaining each part of the code for better understanding.
-Input:
-Provided script: {your input script}

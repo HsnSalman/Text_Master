@@ -6,7 +6,6 @@ import tempfile
 import fitz  
 import docx  
 from PIL import Image  
-import os  
 from embeddings import generate_embeddings_open_ai, generate_text
 from chunker import chunk_by_max_chunk_size
 
@@ -30,8 +29,6 @@ elif model_choice == "OpenAI GPT-4":
 #     # Replace 'gemeni-model' with the actual model name for Gemeni
 #     model_name = "gemini-pro"
 #     Phd = LLM.create(LLMProvider.GEMINI, model_name=model_name)
-
-
 
 
 # Set up the Streamlit app title and description with an icon
