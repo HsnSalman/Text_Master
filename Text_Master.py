@@ -43,7 +43,7 @@ elif model_choice == "OpenAI GPT-4":
 #     Phd = LLM.create(LLMProvider.GEMINI, model_name=model_name)
 
 # Set up the Streamlit app title and description with an icon
-header_image = Image.open("Sorbonne.png")  # Replace with your image path
+header_image = Image.open("textsummarizer.png")  # Replace with your image path
 st.image(header_image, use_column_width=True)
 st.title("Text Summarizer with LLM Models for Our PhD Team Members")
 st.write("Upload a text file (PDF, TXT, DOCX) and get a summarized version of its content using the selected LLM model.")
@@ -210,5 +210,5 @@ else:
     st.info("Please upload a file to summarize.")
 
 # Add a footer image
-footer_image = Image.open("textsummarizer.png")  
+footer_image = Image.open("lip6.png")  
 st.image(footer_image, use_column_width=True, caption="Thank you for using our service!")
