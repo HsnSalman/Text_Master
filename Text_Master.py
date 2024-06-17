@@ -1,4 +1,3 @@
-
 import streamlit as st  
 from SimplerLLM.language.llm import LLM, LLMProvider  
 from SimplerVectors_core import VectorDatabase  
@@ -8,6 +7,8 @@ import docx
 from PIL import Image  
 from embeddings import generate_embeddings_open_ai, generate_text
 from chunker import chunk_by_max_chunk_size
+import os
+from openai import OpenAI
 
 # Set up the Streamlit app configuration
 st.set_page_config(page_title="Text Summarizer", page_icon=":memo:")
@@ -17,8 +18,19 @@ st.sidebar.title("Model Selection and Options")
 model_choice = st.sidebar.selectbox("Select LLM Model", ["OpenAI GPT-3.5-turbo", "OpenAI GPT-4", "Gemini"])
 st.sidebar.markdown("<hr>", unsafe_allow_html=True)
 
+# Add API key input field
+api_key = st.sidebar.text_input("Enter your API key", type="password")
 
-# # Initialize the selected language model
+# Check if the API key is provided
+if not api_key:
+    st.sidebar.warning("Please enter your API key to proceed.")
+    st.stop()
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+
+openai_client = OpenAI(api_key=OPENAI_API_KEY)
+
+# Initialize the selected language model
 if model_choice == "OpenAI GPT-3.5-turbo":
     model_name = "gpt-3.5-turbo"
     Phd = LLM.create(LLMProvider.OPENAI, model_name=model_name)
@@ -26,10 +38,9 @@ elif model_choice == "OpenAI GPT-4":
     model_name = "gpt-4"
     Phd = LLM.create(LLMProvider.OPENAI, model_name=model_name)
 # elif model_choice == "Gemini":
-#     # Replace 'gemeni-model' with the actual model name for Gemeni
+#     # Replace 'gemini-model' with the actual model name for Gemeni
 #     model_name = "gemini-pro"
 #     Phd = LLM.create(LLMProvider.GEMINI, model_name=model_name)
-
 
 # Set up the Streamlit app title and description with an icon
 header_image = Image.open("Sorbonne.png")  # Replace with your image path
