@@ -37,14 +37,14 @@ if model_choice == "OpenAI GPT-3.5-turbo":
 elif model_choice == "OpenAI GPT-4":
     model_name = "gpt-4"
     Phd = LLM.create(LLMProvider.OPENAI, model_name=model_name)
-# elif model_choice == "Gemini":
-#     # Replace 'gemini-model' with the actual model name for Gemeni
-#     model_name = "gemini-pro"
-#     Phd = LLM.create(LLMProvider.GEMINI, model_name=model_name)
+elif model_choice == "Gemini":
+    # Replace 'gemini-model' with the actual model name for Gemeni
+    model_name = "gemini-pro"
+    Phd = LLM.create(LLMProvider.GEMINI, model_name=model_name)
 
 # Set up the Streamlit app title and description with an icon
 header_image = Image.open("textsummarizer.png")  # Replace with your image path
-st.image(header_image, use_column_width=True)
+st.image(header_image, use_column_width=True, caption = "Developed by Hassan Salman")
 st.title("Text Summarizer with LLM Models for Our PhD Team Members")
 st.write("Upload a text file (PDF, TXT, DOCX) and get a summarized version of its content using the selected LLM model.")
 
