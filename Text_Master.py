@@ -9,7 +9,7 @@ from embeddings import generate_embeddings_open_ai, generate_text
 from chunker import chunk_by_max_chunk_size
 import os
 from openai import OpenAI
-import pyttsx3 # type: ignore
+import pyttsx3 
 
 # Set up the Streamlit app configuration
 st.set_page_config(page_title="Text Master", page_icon=":memo:")
@@ -19,14 +19,14 @@ with st.sidebar:
     st.title("Model Selection")
     model_choice = st.selectbox("Select LLM Model", ["OpenAI GPT-3.5-turbo", "OpenAI GPT-4", "Gemini"])
     st.markdown("<hr>", unsafe_allow_html=True)
-    api_key = st.text_input("Enter your API key", type="password")
+    # api_key = st.text_input("Enter your API key", type="password")
 
-    if not api_key:
-        st.warning("Please enter your API key to proceed.")
-        st.stop()
+    # if not api_key:
+    #     st.warning("Please enter your API key to proceed.")
+    #     st.stop()
 
 # Initialize OpenAI client
-openai_client = OpenAI(api_key=api_key)
+# openai_client = OpenAI(api_key=api_key)
 
 # Initialize the selected language model
 if model_choice == "OpenAI GPT-3.5-turbo":
@@ -110,7 +110,7 @@ if uploaded_file is not None:
 
         st.markdown('<div class="subheader-title">Customize Your Summary</div>', unsafe_allow_html=True)
         summary_length = st.slider("Summary Length (in sentences)", min_value=1, max_value=10, value=5)
-        summarized_text = Phd.generate_response(prompt=f"Summarize the following text in {summary_length} sentences: {content}")
+        summarized_text = Phd.generate_response(prompt=f"Summarize the following text to bullet points in {summary_length} sentences, content: {content}")
 
         st.markdown('<div class="subheader-title">Summarized Text</div>', unsafe_allow_html=True)
         st.write(summarized_text)
