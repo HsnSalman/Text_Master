@@ -8,7 +8,7 @@ from PIL import Image
 from embeddings import generate_embeddings_open_ai, generate_text
 from chunker import chunk_by_max_chunk_size
 import os
-import pyttsx3 #type: ignore
+import pyttsx3 # type: ignore
 
 # Set up the Streamlit app configuration
 st.set_page_config(page_title="Text Master", page_icon=":memo:")
