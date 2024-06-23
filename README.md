@@ -1,6 +1,8 @@
 # ⚪ Text Master
 ⚡ Your Easy tool to advaced Text Processing ⚡
 
+[![Documentation](https://img.shields.io/badge/Documentation-Online-brightgreen)](https://hsnsalman.github.io/Text_Master_doc/)
+
 ## 🤔 What is Text Master?
 Your go-to advanced text summarizer, crafted with different language models. Our tool enables swift and efficient summarization of extensive text files, including PDFs, TXT, and DOCX formats. By leveraging multiple models such as OpenAI GPT-3.5-turbo, GPT-4, and Gemini, Text Master delivers accurate and concise summaries, complemented by advanced text analysis features. Tailored for researchers, students, and professionals, Text Master is designed to help you manage and utilize your text data more effectively.
 
