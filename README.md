@@ -27,7 +27,7 @@ To set up the Text Master application, follow these steps:
     streamlit run Text_Master.py
     ```
 ### Features
-- Summarize your Text.
+- Summarization.
 - Sentiment Analysis.
 - Keywords Extraction.
 - Language Translation.
