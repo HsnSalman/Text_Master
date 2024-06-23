@@ -1,6 +1,8 @@
-# Text Master
+# ⚪ Text Master
+⚡ Your Easy tool to advaced Text Processing ⚡
 
-Welcome to Text Master, your go-to advanced text summarizer, crafted with different language models. Our tool enables swift and efficient summarization of extensive text files, including PDFs, TXT, and DOCX formats. By leveraging multiple models such as OpenAI GPT-3.5-turbo, GPT-4, and Gemini, Text Master delivers accurate and concise summaries, complemented by advanced text analysis features. Tailored for researchers, students, and professionals, Text Master is designed to help you manage and utilize your text data more effectively.
+## 🤔 What is Text Master?
+Your go-to advanced text summarizer, crafted with different language models. Our tool enables swift and efficient summarization of extensive text files, including PDFs, TXT, and DOCX formats. By leveraging multiple models such as OpenAI GPT-3.5-turbo, GPT-4, and Gemini, Text Master delivers accurate and concise summaries, complemented by advanced text analysis features. Tailored for researchers, students, and professionals, Text Master is designed to help you manage and utilize your text data more effectively.
 
 ## Easy Installation and Setup
 
@@ -17,11 +19,14 @@ To set up the Text Master application, follow these steps:
     ```bash
     pip install -r requirements.txt
     ```
-4. ![Setup](https://img.shields.io/badge/-Setup-yellow?style=flat-square&logo=envato&logoColor=white) Create a `.env` file in the root directory of your project and add your API keys there:
+5. ![Setup](https://img.shields.io/badge/-Setup-yellow?style=flat-square&logo=envato&logoColor=white) Create a `.env` file in the root directory of your project and add your API keys there:
+   
+    🔴 This file should be kept private and not committed to version control to protect your keys.
+   
     ```env
     OPENAI_API_KEY="your_openai_api_key_here"
     ```
-5. ![Run](https://img.shields.io/badge/-Run-orange?style=flat-square&logo=python&logoColor=white) Run the Streamlit application:
+7. ![Run](https://img.shields.io/badge/-Run-orange?style=flat-square&logo=python&logoColor=white) Run the Streamlit application:
     ```bash
     streamlit run Text_Master.py
     ```
