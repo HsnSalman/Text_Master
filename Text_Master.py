@@ -8,7 +8,7 @@ from PIL import Image
 from embeddings import generate_embeddings_open_ai, generate_text
 from chunker import chunk_by_max_chunk_size
 import os
-import pyttsx3 # type: ignore
+import pyttsx3  # type: ignore
 
 # Set up the Streamlit app configuration
 st.set_page_config(page_title="Text Master", page_icon=":memo:")
@@ -18,6 +18,11 @@ with st.sidebar:
     st.title("Model Selection")
     model_choice = st.selectbox("Select LLM Model", ["OpenAI GPT-3.5-turbo", "OpenAI GPT-4", "Gemini"])
     st.markdown("<hr>", unsafe_allow_html=True)
+    save_content = st.checkbox("Allow saving content in memory", value=False)
+    st.markdown(
+        "<p style='font-size: 12px; color: #6c757d;'>If you option not to save the content, the uploaded file will be deleted after processing.</p>",
+        unsafe_allow_html=True
+    )
     # api_key = st.text_input("Enter your API key", type="password")
 
     # if not api_key:
@@ -39,7 +44,7 @@ elif model_choice == "Gemini":
     Phd = LLM.create(LLMProvider.GEMINI, model_name=model_name)
 
 # Page title and header
-st.image("textmaster.png", use_column_width=True, caption="Developed by Hassan Salman")
+st.image("textmaster.png", use_column_width=True)
 st.markdown("<h1 style='text-align: left;'>Text Master</h1>", unsafe_allow_html=True)
 st.subheader("Your Gateway to Advanced Text Processing")
 
@@ -53,6 +58,7 @@ st.markdown("""
     .alert { background-color: #f8f9fa; color: #6c757d; padding: 10px; border-radius: 5px; border: 1px solid #ced4da; margin-bottom: 20px; }
     .btn-container { display: flex; flex-direction: column; align-items: center; }
     .btn-container > button { width: 100%; margin: 5px 0; }
+    .caption { font-size: 12px; color: #6c757d; text-align: center; margin-top: 20px; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -142,9 +148,7 @@ if uploaded_file is not None:
         if st.button("Summarized Text to Speech", key="text-to-speech-btn"):
             generate_tts(summarized_text, "output.mp3")
             st.audio("output.mp3", format="audio/mp3")
-           
 
-    
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.markdown('<div class="subheader-title">Ask Questions from the PDF</div>', unsafe_allow_html=True)
@@ -187,11 +191,16 @@ if uploaded_file is not None:
     except ValueError as e:
         st.error(f"Error processing file: {e}")
 
+    finally:
+        if not save_content:
+            # Delete the temporary file if the user opts not to save content
+            os.remove(tmp_file_path)
+
 else:
     st.info("Please upload a file to summarize.")
 
 # Footer section
 with st.container():
-    footer_image = Image.open("lip6.png")
-    st.image(footer_image, use_column_width=True, caption="Thank you for using our service!")
-    st.markdown('<div class="footer-text centered-footer">© 2024 Laboratoire d\'Informatique de Paris 6, CNRS, Sorbonne Universités. All rights reserved</div>', unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: center;'>Enjoy the Tool :)</h5>", unsafe_allow_html=True)
+    st.caption("<p style='text-align: center;'>Developed by Hassan Salman, a PhD Student in LIP6 Laboratory at Sorbonne University</p>", unsafe_allow_html=True)
+   
