@@ -1,7 +1,9 @@
 fitz==0.0.1.dev2
-Pillow==10.3.0
+PyMuPDF==1.24.4
+Pillow==10.4.0
+pydantic==1.8.2
 python_docx==1.1.0
 pyttsx3==2.90
 SimplerLLM==0.2.6
 streamlit==1.36.0
-pillow==10.3.0
+
